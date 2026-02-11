@@ -11,6 +11,16 @@ body {
 	--lightGrey: #454648;
 	--lightGrey2: #6F6F6F;
 
+	--red:#E64F4F;
+	--orange: #FFA64D;
+	--yellow: #F8F84A;
+	--lightGreen: #A0F549;
+	--greed: #4BFEA4;
+	--cyan: #4CFFFF;
+	--purple: #3F3FD4;
+	--lightPurple: #9F49F4;
+	--pink: #FB4BFB;
+	--white: #FFFFFF;
 	--mali: "Mali";
 }
 /* header */
@@ -21,7 +31,7 @@ body {
 	align-items: center;
 	justify-content: space-around;
 	background-color: #1B1B1B;
-	color: #fff;
+	color: var(--white);
 	font-size: 18px;
 	border-bottom: 2px solid black;
 }
@@ -41,7 +51,8 @@ main {
 	flex: 0.2;
 }
 #upgradeCirclesSpeedBtns button {
-	height: 50px;
+	height: 65px;
+	border-radius: 10px;
 }
 
 /* the canvas + player money */
@@ -58,7 +69,7 @@ main {
 	align-items: center;
 }
 #circle-availableFunds #availableFunds {
-	color: #fff;
+	color: var(--white);
 	font-size: 55px;
 }
 #circle-availableFunds #canvas {
@@ -68,13 +79,12 @@ main {
 #navBar {
 	display: flex;
 	flex-direction: column;
-	color: #fff;
+	color: var(--white);
 	background-color: var(--lightGrey);
-	width: 250px;
 	font-size: 22px;
 	list-style-type: none;
 	text-decoration: none;
-	flex: 0.1;
+	flex: 0.15;
 }
 #navBar ul {
 	list-style-type: none;
@@ -82,6 +92,7 @@ main {
 #navBar ul li{
 	padding: 20px 15px;
 	display: flex;
+	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
 	gap: 10px;
