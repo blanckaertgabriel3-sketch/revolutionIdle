@@ -3,12 +3,50 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Revolution Idle</title>
+	<!-- font-awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+	<!-- mali font  -->
+	 <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Playwrite+NZ+Basic:wght@100..400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
+	<title>Revolution Idle</title>
 	<link rel="stylesheet" href="game.css">
 </head>
 <body>
-	
+	<header>
+		<div id="multipliers">
+			<span id="multiplierA"></span>
+			<p>X</p>
+		</div>
+	</header>
+	<main>
+		<div id="upgradeCirclesSpeedBtns">
+			<button id="upgradeSpeedBtnA">Laps/s <span id="lapsSecA"></span><span id="addMultiplierPerSec"></span></button>
+			<button id="upgradeSpeedBtnB"></button>
+		</div>
+		<div id="circle-availableFunds">
+			<div id="infos">
+				<span id="availableFunds">000.0</span>
+			</div>
+			<canvas id="canvas"></canvas>
+		</div>
+		<nav id="navBar">
+			<ul>
+				<li><i class="fa-regular fa-circle" style="color: #ffffff;"></i> Revolution</li>
+				<li><i class="fa-solid fa-infinity" style="color: #d400ff;"></i> Infinity</li>
+				<li><i class="fa-solid fa-sun" style="color: #74C0FC;"></i> Eternity</li>
+				<li><i class="fa-solid fa-robot" style="color: #b0b0b0;"></i> Automatisation</li>
+				<li><i class="fa-solid fa-award" style="color: #63E6BE;"></i> Archivement</li>
+				<li><i class="fa-solid fa-ranking-star" style="color: #ff3333;"></i> Statistics</li>
+				<li><i class="fa-solid fa-gear" style="color: #1cadc7;"></i> Option</li>
+				<li><i class="fa-regular fa-clock" style="color: #FFD43B;"></i> Time</li>
+			</ul>
+		</nav>
+	</main>
+	<footer>
+
+	</footer>
 </body>
 	<script type="module" src="main.js"></script>
 </html>
