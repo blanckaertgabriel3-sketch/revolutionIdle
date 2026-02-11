@@ -20,11 +20,21 @@ export default class View {
 		//buttons
 		this.upgradeSpeedBtnA = document.getElementById("upgradeSpeedBtnA");
 		this.upgradeSpeedBtnB = document.getElementById("upgradeSpeedBtnB");
+		this.upgradeSpeedBtnC = document.getElementById("upgradeSpeedBtnC");
+		this.upgradeSpeedBtnD = document.getElementById("upgradeSpeedBtnD");
+		this.upgradeSpeedBtnE = document.getElementById("upgradeSpeedBtnE");
+		this.upgradeSpeedBtnF = document.getElementById("upgradeSpeedBtnF");
+		this.upgradeSpeedBtnG = document.getElementById("upgradeSpeedBtnG");
+		this.upgradeSpeedBtnH = document.getElementById("upgradeSpeedBtnH");
+		this.upgradeSpeedBtnI = document.getElementById("upgradeSpeedBtnI");
+		this.upgradeSpeedBtnJ = document.getElementById("upgradeSpeedBtnJ");
+
+		this.resizeCanvas();
+		window.addEventListener(("resize"), () => 
+			this.resizeCanvas()
+		);
 	}
 	updateView() {
-		this.multiplierA.innerHTML = this.model.multiplierA;
-
-
 		this.multiplierA.innerHTML = this.model.multiplierA.toFixed(2);
 		this.multiplierB.innerHTML = this.model.multiplierB.toFixed(2);
 		this.multiplierC.innerHTML = this.model.multiplierC.toFixed(2);
@@ -35,6 +45,30 @@ export default class View {
 		this.multiplierH.innerHTML = this.model.multiplierH.toFixed(2);
 		this.multiplierI.innerHTML = this.model.multiplierI.toFixed(2);
 		this.multiplierJ.innerHTML = this.model.multiplierJ.toFixed(2);
+	}
+	resizeCanvas() {
+		const rect = this.canvas.getBoundingClientRect();
+
+		this.canvas.width = rect.width;
+		this.canvas.height = rect.height;
+		this.drawCircles();
+	}
+	drawCircles() {
+		let x = this.canvas.width / 2;
+		let y = this.canvas.height / 2;
+		let radius = 4;
+		let stardAngle = 0;
+		let endAngle = 2*Math.PI;
+		let lineWidth = 18;
+
+		for(let i=0; i<10 ; i++) {
+			this.ctx.beginPath();
+			this.ctx.arc(x, y, radius, stardAngle, endAngle, true);
+			this.ctx.strokeStyle = "red";
+			this.ctx.lineWidth = lineWidth;
+			this.ctx.stroke();
+			radius += lineWidth + 10;
+		}
 	}
 
 }

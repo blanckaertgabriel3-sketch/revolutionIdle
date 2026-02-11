@@ -4,7 +4,11 @@ export default class Controller {
 		this.view = view;
 
 		setInterval(() => {
-			this.view.updateView(),100;
-		})
+			this.view.updateView()
+		},1000)
+		this.view.drawCircles();
+	}
+	//add listeners
+	initInput() {
 	}
 }
