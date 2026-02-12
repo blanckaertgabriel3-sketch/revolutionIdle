@@ -5,8 +5,10 @@ export default class Controller {
 
 		setInterval(() => {
 			this.view.updateView()
-		},1000)
-		this.view.drawCircles();
+		},100)
+		setInterval(() => {
+			this.view.render()
+		}, 100)
 	}
 	//add listeners
 	initInput() {

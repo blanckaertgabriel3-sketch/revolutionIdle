@@ -1,5 +1,6 @@
 export default class Model {
 	constructor() {
+		//multipliers
 		this.multiplierA = 0.00;
 		this.multiplierB = 0.00;
 		this.multiplierC = 0.00;
@@ -11,5 +12,6 @@ export default class Model {
 		this.multiplierI = 0.00;
 		this.multiplierJ = 0.00;
 		
+		this.availableFunds = 100.00;
 	}
 }

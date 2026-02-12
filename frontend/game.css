@@ -5,7 +5,6 @@
 }
 body {
 	margin: 0;
-	min-height: 100vh;
 }
 :root {
 	--lightGrey: #454648;
@@ -33,7 +32,6 @@ body {
 	background-color: #1B1B1B;
 	color: var(--white);
 	font-size: 18px;
-	border-bottom: 2px solid black;
 }
 main {
 	padding: 2vh 0 0 0;
@@ -69,7 +67,7 @@ main {
 }
 #circle-availableFunds #availableFunds {
 	color: var(--white);
-	font-size: 55px;
+	font-size: 35px;
 }
 #circle-availableFunds #canvas {
 	width: 100%;

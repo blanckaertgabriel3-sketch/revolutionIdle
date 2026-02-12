@@ -4,7 +4,6 @@ export default class View {
 		//canvas
 		this.canvas = document.getElementById("canvas");
 		this.ctx = this.canvas.getContext("2d");
-		this.canvas.style.border = "2px solid black";
 		//multipliers
 		this.multipliers = document.getElementById("multipliers");
 		this.multiplierA = document.getElementById("multiplierA");
@@ -29,6 +28,8 @@ export default class View {
 		this.upgradeSpeedBtnI = document.getElementById("upgradeSpeedBtnI");
 		this.upgradeSpeedBtnJ = document.getElementById("upgradeSpeedBtnJ");
 
+		//available funds 
+		this.availableFunds = document.getElementById("availableFunds");
 		this.resizeCanvas();
 		window.addEventListener(("resize"), () => 
 			this.resizeCanvas()
@@ -45,6 +46,8 @@ export default class View {
 		this.multiplierH.innerHTML = this.model.multiplierH.toFixed(2);
 		this.multiplierI.innerHTML = this.model.multiplierI.toFixed(2);
 		this.multiplierJ.innerHTML = this.model.multiplierJ.toFixed(2);
+
+		this.availableFunds.innerHTML = this.model.availableFunds.toFixed(2);	
 	}
 	resizeCanvas() {
 		const rect = this.canvas.getBoundingClientRect();
@@ -56,19 +59,45 @@ export default class View {
 	drawCircles() {
 		let x = this.canvas.width / 2;
 		let y = this.canvas.height / 2;
-		let radius = 4;
-		let stardAngle = 0;
-		let endAngle = 2*Math.PI;
+		let radius = 9;
+		//le haut
+		let stardAngle = -Math.PI /2;
+		let indexEndAngle = 0.5;
+		let endAngle = indexEndAngle*Math.PI;
 		let lineWidth = 18;
+		let spacing = 8;
+		let color = [
+			"#E64F4F","#FFA64D","#F8F84A","#A0F549","#4BFEA4","#4CFFFF","#3F3FD4","#9F49F4","#FB4BFB","#FFFFFF"
+		];
+		let colorIndex = 0;
 
+		// numbers of circles
 		for(let i=0; i<10 ; i++) {
+			
+			//draw circle
 			this.ctx.beginPath();
-			this.ctx.arc(x, y, radius, stardAngle, endAngle, true);
-			this.ctx.strokeStyle = "red";
+			this.ctx.arc(x, y, radius, stardAngle, endAngle, false);
+			//the circle color
+			this.ctx.strokeStyle = color[colorIndex];
+			//the circle line width
 			this.ctx.lineWidth = lineWidth;
 			this.ctx.stroke();
-			radius += lineWidth + 10;
+			//increment the radius for the next circle
+			radius += lineWidth + spacing;
+			//next color in the tab
+			colorIndex ++;
+			//restart the colorIndex
+			if(colorIndex >= color.length) {
+				colorIndex = 0;
+			}
 		}
+	}
+	clearCanvas() {
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	}
+	render() {
+		this.clearCanvas();
+		this.drawCircles();
 	}
 
 }
