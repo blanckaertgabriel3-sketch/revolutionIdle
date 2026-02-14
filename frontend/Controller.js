@@ -9,6 +9,7 @@ export default class Controller {
 		},100)
 		setInterval(() => {
 			this.view.render()
+			this.view.incrementEndAngle()
 		}, 100)
 		this.initInput();
 	}

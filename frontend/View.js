@@ -4,15 +4,15 @@ export default class View {
 		//canvas
 		this.canvas = document.getElementById("canvas");
 		this.ctx = this.canvas.getContext("2d");
-
-
+		
+		
 		this.color = [
 			"#E64F4F","#FFA64D","#F8F84A","#A0F549","#4BFEA4","#4CFFFF","#3F3FD4","#9F49F4","#FB4BFB","#FFFFFF"
 		];
 		this.letters = [
 			"A","B","C","D","E","F","G","H","I","J",
 		]
-
+		
 		//get multiplers, buttons By Id
 		for(let i=0; i<this.letters.length; i++) {
 			//multipliers
@@ -27,6 +27,7 @@ export default class View {
 		}
 		//available funds 
 		this.availableFunds = document.getElementById("availableFunds");
+		this.indexEndAngle = 0;
 		
 	}
 	updateView() {
@@ -46,10 +47,14 @@ export default class View {
 		let x = this.canvas.width / 2;
 		let y = this.canvas.height / 2;
 		let radius = 9;
-		//le haut
-		let stardAngle = -Math.PI /2;
-		let indexEndAngle = 2;
-		let endAngle = indexEndAngle*Math.PI;
+		/*
+		droite → 0
+		bas → Math.PI / 2
+		gauche → Math.PI
+		haut → -Math.PI / 2 (ou 1.5 * Math.PI)
+		*/
+		let stardAngle = -Math.PI / 2;
+		let endAngle =  stardAngle + (this.indexEndAngle*Math.PI);
 		let lineWidth = 18;
 		let spacing = 8;
 		let colorIndex = 0;
@@ -73,6 +78,13 @@ export default class View {
 			if(colorIndex >= this.color.length) {
 				colorIndex = 0;
 			}
+		}
+	}
+	incrementEndAngle() {
+		//rotation speed
+		this.indexEndAngle += 2/64;
+		if(this.indexEndAngle > 2) {
+			this.indexEndAngle = 0;
 		}
 	}
 	clearCanvas() {
