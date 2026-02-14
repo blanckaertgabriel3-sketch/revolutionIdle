@@ -54,7 +54,7 @@ export default class View {
 		haut → -Math.PI / 2 (ou 1.5 * Math.PI)
 		*/
 		let stardAngle = -Math.PI / 2;
-		let endAngle =  stardAngle + (this.indexEndAngle*Math.PI);
+		let endAngle =  stardAngle + this.indexEndAngle;
 		let lineWidth = 18;
 		let spacing = 8;
 		let colorIndex = 0;
@@ -82,10 +82,17 @@ export default class View {
 	}
 	incrementEndAngle() {
 		//rotation speed
-		this.indexEndAngle += 2/64;
-		if(this.indexEndAngle > 2) {
-			this.indexEndAngle = 0;
+		if(this.model.multiplierA !== 0) {
+			this.indexEndAngle += (2*Math.PI)/60 + ((2*Math.PI)/60)*this.model.multiplierA;
+		}else {
+			this.indexEndAngle += (2*Math.PI)/60;
+			
 		}
+		if(this.indexEndAngle >= 2*Math.PI) {
+			this.indexEndAngle -= 2*Math.PI;
+			this.model.multiplierA += 0.01;
+		}
+		
 	}
 	clearCanvas() {
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
