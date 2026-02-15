@@ -1,7 +1,7 @@
 export default class Model {
 	constructor() {
 		// Player money
-		this.availableFunds = 1100;
+		this.availableFunds = 40;
 
 		//multipliers
 		this.multiplierA = 5.00;
@@ -39,16 +39,16 @@ export default class Model {
 		this.addLapsPerSecI = 0;
 		this.addLapsPerSecJ = 0;
 		//costUpgradeSpeed
-		this.costUpgradeSpeedA = 500;
-		this.costUpgradeSpeedB = 0;
-		this.costUpgradeSpeedC = 150;
-		this.costUpgradeSpeedD = 150;
-		this.costUpgradeSpeedE = 150;
-		this.costUpgradeSpeedF = 150;
-		this.costUpgradeSpeedG = 150;
-		this.costUpgradeSpeedH = 150;
-		this.costUpgradeSpeedI = 150;
-		this.costUpgradeSpeedJ = 150;
+		this.costUpgradeSpeedA = 50;
+		this.costUpgradeSpeedB = 50;
+		this.costUpgradeSpeedC = 50;
+		this.costUpgradeSpeedD = 50;
+		this.costUpgradeSpeedE = 50;
+		this.costUpgradeSpeedF = 50;
+		this.costUpgradeSpeedG = 50;
+		this.costUpgradeSpeedH = 50;
+		this.costUpgradeSpeedI = 50;
+		this.costUpgradeSpeedJ = 50;
 
 		this.circleLvlA = 0;
 		this.circleLvlB = 0;
@@ -63,6 +63,9 @@ export default class Model {
 		this.color = [
 			"#E64F4F","#FFA64D","#F8F84A","#A0F549","#4BFEA4","#4CFFFF","#3F3FD4","#9F49F4","#FB4BFB","#FFFFFF"
 		];
+		this.lightColor = [
+			"#7A2E2F","#875A2D","#83822C","#58812C","#2C8559","#2D8687","#26256C","#562C82","#842C84","#878687"
+		];
 		this.letters = [
 			"A","B","C","D","E","F","G","H","I","J",
 		]
@@ -73,15 +76,22 @@ export default class Model {
 		}
 	}
 	canPay(moneyReference, wantToBuy) {
+		//can Pay
 		if(moneyReference >= wantToBuy) {
-			console.log("can Pay");
-			this.changeColorBtn();
+			return true;
 		}
+		//can't Pay
 		else {
-			console.log("can't pay");
+			return false;
 		}
 	}
-	changeColorBtn() {
-		console.log("colorChange");
+	canAffordUpgrade(letter) {
+		if (this.canPay(this.availableFunds, this["costUpgradeSpeed" + letter])) {
+			return true;
+		}
+		else {
+			return false;
+		}
+
 	}
 }

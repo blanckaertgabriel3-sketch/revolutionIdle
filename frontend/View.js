@@ -61,6 +61,11 @@ export default class View {
 			this["costUpgradeSpeed" + this.model.letters[i]].textContent = "Cost:" + this.model["costUpgradeSpeed" + this.model.letters[i]] + " ";
 			this["circleLvl" + this.model.letters[i]].textContent = "Level:" + this.model["circleLvl" + this.model.letters[i]];
 		}
+		for(let i=0 ; i<this.model.letters.length ; i++) {
+			this.model.canAffordUpgrade(this.model.letters[i]) ? 
+			this["upgradeSpeedBtn" + this.model.letters[i]].style.backgroundColor = this.model.color[i] : 
+			this["upgradeSpeedBtn" + this.model.letters[i]].style.backgroundColor = this.model.lightColor[i];
+		}
 	}
 	resizeCanvas() {
 		this.canvas.width = window.innerWidth;
