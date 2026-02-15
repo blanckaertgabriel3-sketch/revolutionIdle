@@ -44,12 +44,32 @@ main {
 #upgradeCirclesSpeedBtns {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
 	flex: 0.15;
+	gap: 1px;
 }
 #upgradeCirclesSpeedBtns button {
 	height: 65px;
-	border-radius: 10px;
+	border-radius: 5px;
+	font-size: 12px;
+	border: 0px;
+}
+.upgradeTextBox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0px 0px 5px 0px;
+	border: none;
+	font-size: 12px;
+	display: none;
+	color: #000;
+	
+}
+#upgradeCirclesSpeedBtns button:hover + .upgradeTextBox{
+	display: flex;
+}
+#upgradeCirclesSpeedBtns button:hover{
+	border-radius: 5px 5px 0px 0px;
+	border: 0px;
 }
 
 /* the canvas + player money */
@@ -110,7 +130,6 @@ main {
 		font-size: 10px;
 	}
 	#upgradeCirclesSpeedBtns {
-		gap: 0px;
 		flex: 0.25;
 	}
 	#upgradeCirclesSpeedBtns > * {
@@ -134,9 +153,6 @@ main {
 		font-size: 10px;
 	}
 	/* btn  */
-	#upgradeCirclesSpeedBtns {
-		gap: 0px;
-	}
 	#upgradeCirclesSpeedBtns > * {
 		font-size: 10px;
 	}
