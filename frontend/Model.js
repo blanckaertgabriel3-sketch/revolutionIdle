@@ -51,16 +51,16 @@ export default class Model {
 		this.costUpgradeSpeedJ = 150;
 
 		//cicles LEVELS
-		this.circleLvlA = 0;
-		this.circleLvlB = 0;
-		this.circleLvlC = 0;
-		this.circleLvlD = 0;
-		this.circleLvlE = 0;
-		this.circleLvlF = 0;
-		this.circleLvlG = 0;
-		this.circleLvlH = 0;
-		this.circleLvlI = 0;
-		this.circleLvlJ = 0;
+		this.circleLvlA = 1;
+		this.circleLvlB = 1;
+		this.circleLvlC = 1;
+		this.circleLvlD = 1;
+		this.circleLvlE = 1;
+		this.circleLvlF = 1;
+		this.circleLvlG = 1;
+		this.circleLvlH = 1;
+		this.circleLvlI = 1;
+		this.circleLvlJ = 1;
 		this.color = [
 			"#E64F4F","#FFA64D","#F8F84A","#A0F549","#4BFEA4","#4CFFFF","#3F3FD4","#9F49F4","#FB4BFB","#FFFFFF"
 		];
