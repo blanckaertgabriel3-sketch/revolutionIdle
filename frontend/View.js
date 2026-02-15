@@ -56,11 +56,12 @@ export default class View {
 		this.availableFunds.innerHTML = this.model.availableFunds.toFixed(2);
 		//buttons data	
 		for(let i=0 ; i<this.model.letters.length ; i++) {
-			this["lapsSec" + this.model.letters[i]].textContent = "Laps/s:" + this.model["lapsSec" + this.model.letters[i]] + " ";
-			this["addLapsPerSec" + this.model.letters[i]].textContent = "[+" + this.model["addLapsPerSec" + this.model.letters[i]] + "] ";
-			this["costUpgradeSpeed" + this.model.letters[i]].textContent = "Cost:" + this.model["costUpgradeSpeed" + this.model.letters[i]] + " ";
-			this["circleLvl" + this.model.letters[i]].textContent = "Level:" + this.model["circleLvl" + this.model.letters[i]];
+			this["lapsSec" + this.model.letters[i]].textContent = "Laps/s:" + this.model["lapsSec" + this.model.letters[i]].toFixed(2) + " ";
+			this["addLapsPerSec" + this.model.letters[i]].textContent = "[+" + this.model["addLapsPerSec" + this.model.letters[i]].toFixed(2) + "] ";
+			this["costUpgradeSpeed" + this.model.letters[i]].textContent = "Cost:" + this.model["costUpgradeSpeed" + this.model.letters[i]].toFixed(2) + " ";
+			this["circleLvl" + this.model.letters[i]].textContent = "Level:" + this.model["circleLvl" + this.model.letters[i]].toFixed(0);
 		}
+		//button color: if can affort light color else dark color.
 		for(let i=0 ; i<this.model.letters.length ; i++) {
 			this.model.canAffordUpgrade(this.model.letters[i]) ? 
 			this["upgradeSpeedBtn" + this.model.letters[i]].style.backgroundColor = this.model.color[i] : 
@@ -90,7 +91,7 @@ export default class View {
 		}
 		
 		// numbers of circles
-		for(let i=0; i<this.model.letters.length ; i++) {
+		for(let i=0; i<this.model.countCirclesNumbers() ; i++) {
 			
 			//draw circle
 			this.ctx.beginPath();
@@ -112,7 +113,7 @@ export default class View {
 	}
 	incrementEndAngle() {
 		//rotation speed
-		for(let i=0; i<this.model.letters.length; i++) {
+		for(let i=0; i<this.model.countCirclesNumbers(); i++) {
 			if(this.model["multiplier" + this.model.letters[i]] !== 0) {
 				this["indexEndAngle" + this.model.letters[i]] += (2*Math.PI)/this["circleSpeed" + this.model.letters[i]] + ((2*Math.PI)/this["circleSpeed" + this.model.letters[i]])*this.model["multiplier" + this.model.letters[i]];
 			}

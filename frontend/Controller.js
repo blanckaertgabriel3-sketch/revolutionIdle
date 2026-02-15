@@ -18,6 +18,12 @@ export default class Controller {
 		window.addEventListener(("resize"), () => 
 			this.view.resizeCanvas()
 		);
+		//add listener for each upgrade circle button.
+		for (let letter of this.model.letters) {
+			this.view["upgradeSpeedBtn" + letter].addEventListener("click", () =>
+				this.model.upgradeSpeedBtnIsPressed(letter)
+			);
+		}
 
 
 	}
