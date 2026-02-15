@@ -4,48 +4,63 @@ export default class View {
 		//canvas
 		this.canvas = document.getElementById("canvas");
 		this.ctx = this.canvas.getContext("2d");
-		
-		
-		this.color = [
-			"#E64F4F","#FFA64D","#F8F84A","#A0F549","#4BFEA4","#4CFFFF","#3F3FD4","#9F49F4","#FB4BFB","#FFFFFF"
-		];
-		this.letters = [
-			"A","B","C","D","E","F","G","H","I","J",
-		]
-		
-		
-		//get multiplers, buttons By Id, and color it: multipliers, buttons
-		for(let i=0; i<this.letters.length; i++) {
-			//multipliers
-			this["multiplier" + this.letters[i]] = document.getElementById("multiplier" + this.letters[i]);
-			this["multiplier" + this.letters[i]].style.color = this.color[i];
-			//buttons
-			this["upgradeSpeedBtn" + this.letters[i]] = document.getElementById("upgradeSpeedBtn" + this.letters[i]);
-			this["upgradeSpeedBtn" + this.letters[i]].style.backgroundColor = this.color[i];
-		}
 		//available funds 
 		this.availableFunds = document.getElementById("availableFunds");
+		
+		//----Circles
+		//get multiplers and color it
+		for(let i=0; i<this.model.letters.length; i++) {
+			//multipliers
+			this["multiplier" + this.model.letters[i]] = document.getElementById("multiplier" + this.model.letters[i]);
+			this["multiplier" + this.model.letters[i]].style.color = this.model.color[i];
+		}
 		//for circles 
 		this.stardAngle = -Math.PI / 2;
 		//initialize indexEndAngle[letter]
-		for(let i=0; i<this.letters.length; i++) {
-			this["indexEndAngle" + this.letters[i]] = 0;
+		for(let i=0; i<this.model.letters.length; i++) {
+			this["indexEndAngle" + this.model.letters[i]] = 0;
 		}
 		//set a speed for each circles
-		for(let i=0; i<this.letters.length; i++) {
-			this["circleSpeed" + this.letters[i]] = 60;
+		for(let i=0; i<this.model.letters.length; i++) {
+			this["circleSpeed" + this.model.letters[i]] = 60;
 		}
+		
+		//----Button circles speed upgrade
+		//get upgrade Speed Btn and color it
+		for(let i=0; i<this.model.letters.length; i++) {
+			//get buttons
+			this["upgradeSpeedBtn" + this.model.letters[i]] = document.getElementById("upgradeSpeedBtn" + this.model.letters[i]);
+			//get Laps Per Second
+			this["lapsSec" + this.model.letters[i]] = document.getElementById("lapsSec" + this.model.letters[i]);
+			//get addLapsPerSec
+			this["addLapsPerSec" + this.model.letters[i]] = document.getElementById("addLapsPerSec" + this.model.letters[i]);
+			//costUpgradeSpeed
+			this["costUpgradeSpeed" + this.model.letters[i]] = document.getElementById("costUpgradeSpeed" + this.model.letters[i]);
+			this["circleLvl" + this.model.letters[i]] = document.getElementById("circleLvl" + this.model.letters[i]);
 
 
+
+			//color buttons
+			this["upgradeSpeedBtn" + this.model.letters[i]].style.backgroundColor = this.model.color[i];
+		}
+		
+		
 		
 	}
 	updateView() {
 		//update all textContent multipliers
-		for(let i=0 ; i<this.letters.length ; i++) {
-			this["multiplier" + this.letters[i]].textContent = this.model["multiplier" + this.letters[i]].toFixed(2);
+		for(let i=0 ; i<this.model.letters.length ; i++) {
+			this["multiplier" + this.model.letters[i]].textContent = this.model["multiplier" + this.model.letters[i]].toFixed(2);
 		}
-		
-		this.availableFunds.innerHTML = this.model.availableFunds.toFixed(2);	
+		//player money
+		this.availableFunds.innerHTML = this.model.availableFunds.toFixed(2);
+		//buttons data	
+		for(let i=0 ; i<this.model.letters.length ; i++) {
+			this["lapsSec" + this.model.letters[i]].textContent = "Laps/s:" + this.model["lapsSec" + this.model.letters[i]] + " ";
+			this["addLapsPerSec" + this.model.letters[i]].textContent = "[+" + this.model["addLapsPerSec" + this.model.letters[i]] + "] ";
+			this["costUpgradeSpeed" + this.model.letters[i]].textContent = "Cost:" + this.model["costUpgradeSpeed" + this.model.letters[i]] + " ";
+			this["circleLvl" + this.model.letters[i]].textContent = "Level:" + this.model["circleLvl" + this.model.letters[i]];
+		}
 	}
 	resizeCanvas() {
 		this.canvas.width = window.innerWidth;
@@ -65,18 +80,18 @@ export default class View {
 		let lineWidth = 18;
 		let spacing = 8;
 		let colorIndex = 0;
-		for(let i=0; i<this.letters.length; i++) {
-			this["endAngle" + this.letters[i]] = this.stardAngle + this["indexEndAngle" + this.letters[i]];
+		for(let i=0; i<this.model.letters.length; i++) {
+			this["endAngle" + this.model.letters[i]] = this.stardAngle + this["indexEndAngle" + this.model.letters[i]];
 		}
 		
 		// numbers of circles
-		for(let i=0; i<this.letters.length ; i++) {
+		for(let i=0; i<this.model.letters.length ; i++) {
 			
 			//draw circle
 			this.ctx.beginPath();
-			this.ctx.arc(x, y, radius, this.stardAngle, this["endAngle" + this.letters[i]], false);
+			this.ctx.arc(x, y, radius, this.stardAngle, this["endAngle" + this.model.letters[i]], false);
 			//the circle color
-			this.ctx.strokeStyle = this.color[colorIndex];
+			this.ctx.strokeStyle = this.model.color[colorIndex];
 			//the circle line width
 			this.ctx.lineWidth = lineWidth;
 			this.ctx.stroke();
@@ -85,24 +100,24 @@ export default class View {
 			//next color in the tab
 			colorIndex ++;
 			//restart the colorIndex
-			if(colorIndex >= this.color.length) {
+			if(colorIndex >= this.model.color.length) {
 				colorIndex = 0;
 			}
 		}
 	}
 	incrementEndAngle() {
 		//rotation speed
-		for(let i=0; i<this.letters.length; i++) {
-			if(this.model["multiplier" + this.letters[i]] !== 0) {
-				this["indexEndAngle" + this.letters[i]] += (2*Math.PI)/this["circleSpeed" + this.letters[i]] + ((2*Math.PI)/this["circleSpeed" + this.letters[i]])*this.model["multiplier" + this.letters[i]];
+		for(let i=0; i<this.model.letters.length; i++) {
+			if(this.model["multiplier" + this.model.letters[i]] !== 0) {
+				this["indexEndAngle" + this.model.letters[i]] += (2*Math.PI)/this["circleSpeed" + this.model.letters[i]] + ((2*Math.PI)/this["circleSpeed" + this.model.letters[i]])*this.model["multiplier" + this.model.letters[i]];
 			}
 			else {
-				this["indexEndAngle" + this.letters[i]] += (2*Math.PI)/this["circleSpeed" + this.letters[i]];
+				this["indexEndAngle" + this.model.letters[i]] += (2*Math.PI)/this["circleSpeed" + this.model.letters[i]];
 				
 			}
-			if(this["indexEndAngle" + this.letters[i]] >= 2*Math.PI) {
-				this["indexEndAngle" + this.letters[i]] -= 2*Math.PI;
-				this.model["multiplier" + this.letters[i]] += 0.01;
+			if(this["indexEndAngle" + this.model.letters[i]] >= 2*Math.PI) {
+				this["indexEndAngle" + this.model.letters[i]] -= 2*Math.PI;
+				this.model["multiplier" + this.model.letters[i]] += 0.01;
 			}
 		}
 		

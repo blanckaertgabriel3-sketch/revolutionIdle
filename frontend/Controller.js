@@ -12,12 +12,16 @@ export default class Controller {
 			this.view.incrementEndAngle()
 		}, 100)
 		this.initInput();
+		setInterval(() => {
+			this.model.canPay(this.model.availableFunds, this.model.costUpgradeSpeedA);
+		}, 100)
 	}
 	//add listeners
 	initInput() {
 		window.addEventListener(("resize"), () => 
 			this.view.resizeCanvas()
 		);
+
 
 	}
 }
