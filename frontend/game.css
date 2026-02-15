@@ -111,31 +111,44 @@ main {
 	}
 	#upgradeCirclesSpeedBtns {
 		gap: 0px;
+		flex: 0.25;
 	}
 	#upgradeCirclesSpeedBtns > * {
 		font-size: 10px;
 	}
+	/* canvas  */
+	#circle-availableFunds {
+		flex: 1;
+	}
+	/* navBar  */
 	#navBar {
 		display: none;
 		font-size: 10px;
+		flex: auto;
 	}
 }
 /* tablet  */
 @media screen and (width > 480px) and (width < 1024px) {
-	#navBar .fa-circle{
-		color: rgb(240, 150, 0) !important;
-	}
+	/* header  */
 	#multipliers {
-	font-size: 10px;
+		font-size: 10px;
 	}
+	/* btn  */
 	#upgradeCirclesSpeedBtns {
 		gap: 0px;
 	}
 	#upgradeCirclesSpeedBtns > * {
 		font-size: 10px;
 	}
+	/* navBar  */
 	#navBar {
-		font-size: 10px;
+		font-size: 12px;
+	}
+	#navBar .fa-circle{
+		color: rgb(240, 150, 0) !important;
+	}
+	#navBar ul li {
+    	padding: 28px 15px;
 	}
 }
 /* desktop  */
