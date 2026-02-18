@@ -64,93 +64,65 @@ main {
 	flex: 0.3;
 	background-color: red;
 	font-size: 24px;
-	opacity: 0;
 }
 #button-container section > button:nth-child(2) {
 	flex: 1;
 	font-size: 10px;
-
 }
-#button-container section > div{
-	flex: 0.8;
+.textBox {
+	width: 90px;
+	height: 52px;
+	background-color: red;
 	border-radius: 5px;
 	font-size: 10px;
 	border: 0px;
 	padding: 2px 5px;
-	background-color: red;
-	opacity: 0;
 }
-#secA {
-	display: flex;
-	flex-direction: row;
-}
-#secB {
-	display: flex;
-	flex-direction: row;
-}
-#secC {
-	display: flex;
-	flex-direction: row;
-}
-#secD {
-	display: flex;
-	flex-direction: row;
-}
-#secE {
-	display: flex;
-	flex-direction: row;
-}
-#secF {
-	display: flex;
-	flex-direction: row;
-}
-#secG {
-	display: flex;
-	flex-direction: row;
-}
-#secH {
-	display: flex;
-	flex-direction: row;
-}
-#secI {
-	display: flex;
-	flex-direction: row;
-}
-#secJ {
-	display: flex;
-	flex-direction: row;
-}
+
+#secA {display: flex; flex-direction: row;}
+#secB {display: flex; flex-direction: row;}
+#secC {display: flex; flex-direction: row;}
+#secD {display: flex; flex-direction: row;}
+#secE {display: flex; flex-direction: row;}
+#secF {display: flex; flex-direction: row;}
+#secG {display: flex; flex-direction: row;}
+#secH {display: flex; flex-direction: row;}
+#secI {display: flex; flex-direction: row;}
+#secJ {display: flex; flex-direction: row;}
+
+#ascA {opacity: 0;}
+#ascB {opacity: 0;}
+#ascC {opacity: 0;}
+#ascD {opacity: 0;}
+#ascE {opacity: 0;}
+#ascF {opacity: 0;}
+#ascG {opacity: 0;}
+#ascH {opacity: 0;}
+#ascI {opacity: 0;}
+#ascJ {opacity: 0;}
+
+#textBoxA {opacity: 0;}
+#textBoxB {opacity: 0;}
+#textBoxC {opacity: 0;}
+#textBoxD {opacity: 0;}
+#textBoxE {opacity: 0;}
+#textBoxF {opacity: 0;}
+#textBoxG {opacity: 0;}
+#textBoxH {opacity: 0;}
+#textBoxI {opacity: 0;}
+#textBoxJ {opacity: 0;}
+
 /* botton hover  */
-body:has(#upgradeSpeedBtnA:hover) #textBoxA {
-	opacity: 1;
-}
-body:has(#upgradeSpeedBtnB:hover) #textBoxB {
-	opacity: 1;
-}
-body:has(#upgradeSpeedBtnC:hover) #textBoxC {
-	opacity: 1;
-}
-body:has(#upgradeSpeedBtnD:hover) #textBoxD {
-	opacity: 1;
-}
-body:has(#upgradeSpeedBtnE:hover) #textBoxE {
-	opacity: 1;
-}
-body:has(#upgradeSpeedBtnF:hover) #textBoxF {
-	opacity: 1;
-}
-body:has(#upgradeSpeedBtnG:hover) #textBoxG {
-	opacity: 1;
-}
-body:has(#upgradeSpeedBtnH:hover) #textBoxH {
-	opacity: 1;
-}
-body:has(#upgradeSpeedBtnI:hover) #textBoxI {
-	opacity: 1;
-}
-body:has(#upgradeSpeedBtnJ:hover) #textBoxJ {
-	opacity: 1;
-}
+#secA:has(#upgradeSpeedBtnA:hover) #textBoxA {opacity: 1;}
+#secB:has(#upgradeSpeedBtnB:hover) #textBoxB {opacity: 1;}
+#secC:has(#upgradeSpeedBtnC:hover) #textBoxC {opacity: 1;}
+#secD:has(#upgradeSpeedBtnD:hover) #textBoxD {opacity: 1;}
+#secE:has(#upgradeSpeedBtnE:hover) #textBoxE {opacity: 1;}
+#secF:has(#upgradeSpeedBtnF:hover) #textBoxF {opacity: 1;}
+#secG:has(#upgradeSpeedBtnG:hover) #textBoxG {opacity: 1;}
+#secH:has(#upgradeSpeedBtnH:hover) #textBoxH {opacity: 1;}
+#secI:has(#upgradeSpeedBtnI:hover) #textBoxI {opacity: 1;}
+#secJ:has(#upgradeSpeedBtnJ:hover) #textBoxJ {opacity: 1;}
 
 
 
@@ -173,6 +145,8 @@ body:has(#upgradeSpeedBtnJ:hover) #textBoxJ {
 #circle-availableFunds #canvas {
 	width: 100%;
 }
+
+
 /* navBar */
 #navBar {
 	display: flex;
