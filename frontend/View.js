@@ -1,20 +1,41 @@
 export default class View {
 	constructor(model) {
 		this.model = model;
-		//canvas
+		//CANVAS
 		this.canvas = document.getElementById("canvas");
 		this.ctx = this.canvas.getContext("2d");
+
+		//DOM ELEMENTS
+
 		//available funds 
 		this.availableFunds = document.getElementById("availableFunds");
-		
-		//----Circles
-		//get multiplers and color it
+
 		for(let i=0; i<this.model.letters.length; i++) {
 			//multipliers
 			this["multiplier" + this.model.letters[i]] = document.getElementById("multiplier" + this.model.letters[i]);
-			this["multiplier" + this.model.letters[i]].style.color = this.model.color[i];
+			//get buttons
+			this["upgradeSpeedBtn" + this.model.letters[i]] = document.getElementById("upgradeSpeedBtn" + this.model.letters[i]);
+			//get Laps Per Second
+			this["lapsSec" + this.model.letters[i]] = document.getElementById("lapsSec" + this.model.letters[i]);
+			//get addLapsPerSec
+			this["addLapsPerSec" + this.model.letters[i]] = document.getElementById("addLapsPerSec" + this.model.letters[i]);
+			//costUpgradeSpeed
+			this["costUpgradeSpeed" + this.model.letters[i]] = document.getElementById("costUpgradeSpeed" + this.model.letters[i]);
+			//text Box 
+			this["textBox" + this.model.letters[i]] = document.getElementById("textBox" + this.model.letters[i]);
+			//button ascension 
+			this["asc" + this.model.letters[i]] = document.getElementById("asc" + this.model.letters[i]);
 		}
-		//for circles 
+		//COLOR ELEMENTS
+		for(let i=0; i<this.model.letters.length; i++) {
+			//header multipliers color
+			this["multiplier" + this.model.letters[i]].style.color = this.model.color[i];
+			//textBox color
+			this["textBox" + this.model.letters[i]].style.backgroundColor = this.model.color[i];
+			//ascension color
+			this["asc" + this.model.letters[i]].style.backgroundColor = this.model.color[i];
+		}
+		//INITIALIZE DATA FOR CIRCLES
 		this.stardAngle = -Math.PI / 2;
 		//initialize indexEndAngle[letter]
 		for(let i=0; i<this.model.letters.length; i++) {
@@ -25,36 +46,16 @@ export default class View {
 			this["circleSpeed" + this.model.letters[i]] = 60;
 		}
 		
-		//----Button circles speed upgrade
-		//get upgrade Speed Btn and color it
-		for(let i=0; i<this.model.letters.length; i++) {
-			//get buttons
-			this["upgradeSpeedBtn" + this.model.letters[i]] = document.getElementById("upgradeSpeedBtn" + this.model.letters[i]);
-			//get Laps Per Second
-			this["lapsSec" + this.model.letters[i]] = document.getElementById("lapsSec" + this.model.letters[i]);
-			//get addLapsPerSec
-			this["addLapsPerSec" + this.model.letters[i]] = document.getElementById("addLapsPerSec" + this.model.letters[i]);
-			//costUpgradeSpeed
-			this["costUpgradeSpeed" + this.model.letters[i]] = document.getElementById("costUpgradeSpeed" + this.model.letters[i]);
-
-
-
-			//color buttons
-			this["upgradeSpeedBtn" + this.model.letters[i]].style.backgroundColor = this.model.color[i];
-		}
-		
 		
 		
 	}
 	updateView() {
-		//update all textContent multipliers
-		for(let i=0 ; i<this.model.letters.length ; i++) {
-			this["multiplier" + this.model.letters[i]].textContent = this.model["multiplier" + this.model.letters[i]].toFixed(2);
-		}
 		//player money
 		this.availableFunds.innerHTML = this.model.availableFunds.toFixed(2);
 		//buttons data	
 		for(let i=0 ; i<this.model.letters.length ; i++) {
+			//update all textContent multipliers
+			this["multiplier" + this.model.letters[i]].textContent = this.model["multiplier" + this.model.letters[i]].toFixed(2);
 			this["lapsSec" + this.model.letters[i]].textContent = "Laps/s:" + this.model["lapsSec" + this.model.letters[i]].toFixed(2) + " ";
 			this["addLapsPerSec" + this.model.letters[i]].textContent = "[+" + this.model["addLapsPerSec" + this.model.letters[i]].toFixed(2) + "] ";
 			this["costUpgradeSpeed" + this.model.letters[i]].textContent = "Cost:" + this.model["costUpgradeSpeed" + this.model.letters[i]].toFixed(2) + " ";
@@ -65,6 +66,8 @@ export default class View {
 			this.model.canAffordUpgrade(this.model.letters[i]) ? 
 			this["upgradeSpeedBtn" + this.model.letters[i]].style.backgroundColor = this.model.color[i] : 
 			this["upgradeSpeedBtn" + this.model.letters[i]].style.backgroundColor = this.model.lightColor[i];
+
+
 		}
 	}
 	resizeCanvas() {

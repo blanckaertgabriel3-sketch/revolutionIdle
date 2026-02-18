@@ -62,7 +62,6 @@ main {
 }
 #button-container section > button:nth-child(1) {
 	flex: 0.3;
-	background-color: red;
 	font-size: 24px;
 }
 #button-container section > button:nth-child(2) {
@@ -72,7 +71,6 @@ main {
 .textBox {
 	width: 90px;
 	height: 52px;
-	background-color: red;
 	border-radius: 5px;
 	font-size: 10px;
 	border: 0px;
