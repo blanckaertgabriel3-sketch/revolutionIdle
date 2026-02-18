@@ -11,6 +11,9 @@ export default class Controller {
 			this.view.render()
 			this.view.incrementEndAngle()
 		}, 100)
+		setInterval(() => {
+			this.model.addTime()
+		}, this.model.timerSpeed)
 		this.initInput();
 	}
 	//add listeners

@@ -45,7 +45,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	flex: 0.15;
-	gap: 1px;
+	gap: 0px;
 }
 #upgradeCirclesSpeedBtns button {
 	height: 65px;
