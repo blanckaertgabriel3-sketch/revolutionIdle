@@ -123,6 +123,7 @@ export default class Model {
 			this["costUpgradeSpeed" + letter] *= 1.5;
 		}
 	}
+	/*
 	addTime() {
 		//in ms
 		this.timerMs += 1000/this.timerSpeed;
@@ -130,4 +131,5 @@ export default class Model {
 		this.timerS = this.timerMs / 1000;
 		console.log("timer s", this.timerS.toFixed(2));
 	}
+	*/
 }

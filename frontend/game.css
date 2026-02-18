@@ -41,36 +41,118 @@ main {
 	height: 90vh;
 }
 /* buttons part */
-#upgradeCirclesSpeedBtns {
+#button-container {	
 	display: flex;
 	flex-direction: column;
-	flex: 0.15;
-	gap: 0px;
+	gap: 3px;
 }
-#upgradeCirclesSpeedBtns button {
-	height: 65px;
+#button-container section {	
+	gap: 3px;
+}
+#button-container button {
+	border-radius: 2px;
+	border: 0px;
+	padding: 2px 5px;
+}
+#button-container {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	flex: 0.2;
+}
+#button-container section > button:nth-child(1) {
+	flex: 0.3;
+	background-color: red;
+	font-size: 24px;
+	opacity: 0;
+}
+#button-container section > button:nth-child(2) {
+	flex: 1;
+	font-size: 10px;
+
+}
+#button-container section > div{
+	flex: 0.8;
 	border-radius: 5px;
-	font-size: 12px;
+	font-size: 10px;
 	border: 0px;
+	padding: 2px 5px;
+	background-color: red;
+	opacity: 0;
 }
-.upgradeTextBox {
+#secA {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 0px 0px 5px 0px;
-	border: none;
-	font-size: 12px;
-	display: none;
-	color: #000;
-	
+	flex-direction: row;
 }
-#upgradeCirclesSpeedBtns button:hover + .upgradeTextBox{
+#secB {
 	display: flex;
+	flex-direction: row;
 }
-#upgradeCirclesSpeedBtns button:hover{
-	border-radius: 5px 5px 0px 0px;
-	border: 0px;
+#secC {
+	display: flex;
+	flex-direction: row;
 }
+#secD {
+	display: flex;
+	flex-direction: row;
+}
+#secE {
+	display: flex;
+	flex-direction: row;
+}
+#secF {
+	display: flex;
+	flex-direction: row;
+}
+#secG {
+	display: flex;
+	flex-direction: row;
+}
+#secH {
+	display: flex;
+	flex-direction: row;
+}
+#secI {
+	display: flex;
+	flex-direction: row;
+}
+#secJ {
+	display: flex;
+	flex-direction: row;
+}
+/* botton hover  */
+body:has(#upgradeSpeedBtnA:hover) #textBoxA {
+	opacity: 1;
+}
+body:has(#upgradeSpeedBtnB:hover) #textBoxB {
+	opacity: 1;
+}
+body:has(#upgradeSpeedBtnC:hover) #textBoxC {
+	opacity: 1;
+}
+body:has(#upgradeSpeedBtnD:hover) #textBoxD {
+	opacity: 1;
+}
+body:has(#upgradeSpeedBtnE:hover) #textBoxE {
+	opacity: 1;
+}
+body:has(#upgradeSpeedBtnF:hover) #textBoxF {
+	opacity: 1;
+}
+body:has(#upgradeSpeedBtnG:hover) #textBoxG {
+	opacity: 1;
+}
+body:has(#upgradeSpeedBtnH:hover) #textBoxH {
+	opacity: 1;
+}
+body:has(#upgradeSpeedBtnI:hover) #textBoxI {
+	opacity: 1;
+}
+body:has(#upgradeSpeedBtnJ:hover) #textBoxJ {
+	opacity: 1;
+}
+
+
 
 /* the canvas + player money */
 #circle-availableFunds {
@@ -129,10 +211,12 @@ main {
 	#multipliers {
 		font-size: 10px;
 	}
-	#upgradeCirclesSpeedBtns {
+	#button-container {
+		display: flex;
+		flex-direction: row;
 		flex: 0.25;
 	}
-	#upgradeCirclesSpeedBtns > * {
+	#button-container > * {
 		font-size: 10px;
 	}
 	/* canvas  */
@@ -153,7 +237,7 @@ main {
 		font-size: 10px;
 	}
 	/* btn  */
-	#upgradeCirclesSpeedBtns > * {
+	#button-container > * {
 		font-size: 10px;
 	}
 	/* navBar  */

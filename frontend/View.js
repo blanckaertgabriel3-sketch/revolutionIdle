@@ -36,8 +36,6 @@ export default class View {
 			this["addLapsPerSec" + this.model.letters[i]] = document.getElementById("addLapsPerSec" + this.model.letters[i]);
 			//costUpgradeSpeed
 			this["costUpgradeSpeed" + this.model.letters[i]] = document.getElementById("costUpgradeSpeed" + this.model.letters[i]);
-			this["circleLvl" + this.model.letters[i]] = document.getElementById("circleLvl" + this.model.letters[i]);
-			this["textBox" + this.model.letters[i]] = document.getElementById("textBox" + this.model.letters[i]);
 
 
 
@@ -60,7 +58,6 @@ export default class View {
 			this["lapsSec" + this.model.letters[i]].textContent = "Laps/s:" + this.model["lapsSec" + this.model.letters[i]].toFixed(2) + " ";
 			this["addLapsPerSec" + this.model.letters[i]].textContent = "[+" + this.model["addLapsPerSec" + this.model.letters[i]].toFixed(2) + "] ";
 			this["costUpgradeSpeed" + this.model.letters[i]].textContent = "Cost:" + this.model["costUpgradeSpeed" + this.model.letters[i]].toFixed(2) + " ";
-			this["circleLvl" + this.model.letters[i]].textContent = "Level:" + this.model["circleLvl" + this.model.letters[i]].toFixed(0);
 		}
 		//button color textBox: if can affort light color else dark color.
 		for(let i=0 ; i<this.model.letters.length ; i++) {
@@ -68,11 +65,6 @@ export default class View {
 			this.model.canAffordUpgrade(this.model.letters[i]) ? 
 			this["upgradeSpeedBtn" + this.model.letters[i]].style.backgroundColor = this.model.color[i] : 
 			this["upgradeSpeedBtn" + this.model.letters[i]].style.backgroundColor = this.model.lightColor[i];
-
-			//color textBox
-			this.model.canAffordUpgrade(this.model.letters[i]) ? 
-			this["textBox" + this.model.letters[i]].style.backgroundColor = this.model.color[i] : 
-			this["textBox" + this.model.letters[i]].style.backgroundColor = this.model.lightColor[i];
 		}
 	}
 	resizeCanvas() {
