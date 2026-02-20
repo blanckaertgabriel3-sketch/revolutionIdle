@@ -4,14 +4,8 @@ export default class Controller {
 		this.view = view;
 		//resize canvas
 		this.view.resizeCanvas();
-		//update the player view
-		setInterval(() => {
-			this.view.updateView()
-		},100)
-		//draw circles
-		setInterval(() => {
-			this.view.render()
-		}, 100)
+		//update view and draw circles
+		window.requestAnimationFrame(this.loop.bind(this));
 
 		//add all listeners
 		this.initInput();
@@ -27,7 +21,12 @@ export default class Controller {
 				this.model.upgradeSpeedBtnIsPressed(letter)
 			);
 		}
-
-
+	}
+	loop() {
+		//update the player view
+		this.view.updateView();
+		//draw circles
+		this.view.render();
+		requestAnimationFrame(this.loop.bind(this));
 	}
 }
