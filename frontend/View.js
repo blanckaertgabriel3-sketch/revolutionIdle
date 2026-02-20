@@ -136,6 +136,7 @@ export default class View {
 	render() {
 		this.clearCanvas();
 		this.drawCircles();
+		this.incrementEndAngle();
 	}
 
 }

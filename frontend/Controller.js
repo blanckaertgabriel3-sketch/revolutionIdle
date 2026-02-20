@@ -2,18 +2,18 @@ export default class Controller {
 	constructor(model, view) {
 		this.model = model;
 		this.view = view;
-
+		//resize canvas
 		this.view.resizeCanvas();
+		//update the player view
 		setInterval(() => {
 			this.view.updateView()
 		},100)
+		//draw circles
 		setInterval(() => {
 			this.view.render()
-			this.view.incrementEndAngle()
 		}, 100)
-		// setInterval(() => {
-		// 	this.model.addTime()
-		// }, this.model.timerSpeed)
+
+		//add all listeners
 		this.initInput();
 	}
 	//add listeners
