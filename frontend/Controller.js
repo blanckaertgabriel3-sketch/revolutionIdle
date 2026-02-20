@@ -9,6 +9,10 @@ export default class Controller {
 
 		//add all listeners
 		this.initInput();
+		//FPS
+		this.deltaTime = 0;
+		this.lastTimeStamp = 0;
+		this.fps = 0;
 	}
 	//add listeners
 	initInput() {
@@ -22,7 +26,13 @@ export default class Controller {
 			);
 		}
 	}
-	loop() {
+	loop(timeStamp) {
+		//calcul delta time
+		this.deltaTime = timeStamp - this.lastTimeStamp;
+		this.lastTimeStamp = timeStamp;
+		//calcul fps
+		this.fps = 1000 / this.deltaTime;
+		console.log("fps", this.fps.toFixed(0));
 		//update the player view
 		this.view.updateView();
 		//draw circles
