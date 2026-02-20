@@ -73,18 +73,23 @@ export default class View {
 	resizeCanvas() {
 		this.canvas.width = window.innerWidth;
 		this.canvas.height = window.innerHeight;
-		this.drawCircles();
 	}
+
+
+	//-----------------------
+	//-----------------------
+	//-----------------------
+	/*
 	drawCircles() {
 		let x = this.canvas.width / 2;
 		let y = this.canvas.height / 2;
 		let radius = 9;
-		/*
-		droite → 0
-		bas → Math.PI / 2
-		gauche → Math.PI
-		haut → -Math.PI / 2 (ou 1.5 * Math.PI)
-		*/
+
+		// droite → 0
+		// bas → Math.PI / 2
+		// gauche → Math.PI
+		// haut → -Math.PI / 2 (ou 1.5 * Math.PI)
+
 		let lineWidth = 18;
 		let spacing = 8;
 		let colorIndex = 0;
@@ -128,15 +133,16 @@ export default class View {
 				this.model["multiplier" + this.model.letters[i]] += 0.01;
 			}
 		}
-		
 	}
+	*/
+	//-----------------------
+	//-----------------------
+	//-----------------------
 	clearCanvas() {
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	}
 	render() {
 		this.clearCanvas();
-		this.drawCircles();
-		this.incrementEndAngle();
 	}
 
 }

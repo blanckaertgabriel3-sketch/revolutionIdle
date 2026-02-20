@@ -75,6 +75,11 @@ export default class Model {
 			//initialise buttons
 			this["upgradeSpeedBtn" + this.letters[i]];
 		}
+		this.timerMs = 0;
+		this.timerS = 0;
+		this.timerH = 0;
+		this.timerDay = 0;
+		this.timerSpeed = 100;
 	}
 	canPay(moneyReference, wantToBuy) {
 		//can Pay
@@ -118,4 +123,13 @@ export default class Model {
 			this["costUpgradeSpeed" + letter] *= 1.5;
 		}
 	}
+	/*
+	addTime() {
+		//in ms
+		this.timerMs += 1000/this.timerSpeed;
+		console.log("time ms", this.timerMs.toFixed(0));
+		this.timerS = this.timerMs / 1000;
+		console.log("timer s", this.timerS.toFixed(2));
+	}
+	*/
 }
