@@ -32,11 +32,13 @@ export default class Controller {
 		this.lastTimeStamp = timeStamp;
 		//calcul fps
 		this.fps = 1000 / this.deltaTime;
-		console.log("fps", this.fps.toFixed(0));
 		//update the player view
 		this.view.updateView();
 		//draw circles
-		this.view.render();
+		this.view.clearCanvas();
+		this.view.drawCircle(this.deltaTime, 0);
+		
+
 		requestAnimationFrame(this.loop.bind(this));
 	}
 }

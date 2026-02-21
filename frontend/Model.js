@@ -4,7 +4,7 @@ export default class Model {
 		this.availableFunds = 1500;
 
 		//multipliers
-		this.multiplierA = 0.00;
+		this.multiplierA = 1.00;
 		this.multiplierB = 0.00;
 		this.multiplierC = 0.00;
 		this.multiplierD = 0.00;

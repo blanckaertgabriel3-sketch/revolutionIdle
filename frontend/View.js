@@ -36,7 +36,6 @@ export default class View {
 			this["asc" + this.model.letters[i]].style.backgroundColor = this.model.color[i];
 		}
 		//INITIALIZE DATA FOR CIRCLES
-		this.stardAngle = -Math.PI / 2;
 		//initialize indexEndAngle[letter]
 		for(let i=0; i<this.model.letters.length; i++) {
 			this["indexEndAngle" + this.model.letters[i]] = 0;
@@ -45,6 +44,9 @@ export default class View {
 		for(let i=0; i<this.model.letters.length; i++) {
 			this["circleSpeed" + this.model.letters[i]] = 60;
 		}
+		this.startAngle = -Math.PI / 2;
+		this.gameFPS = 0;
+		this.angle = 0;
 		
 		
 		
@@ -74,6 +76,34 @@ export default class View {
 		this.canvas.width = window.innerWidth;
 		this.canvas.height = window.innerHeight;
 	}
+	drawCircle(deltaTime, index) {
+		let lineWidth = 29;
+		let x = this.canvas.width/2;
+		let y = this.canvas.height/2;
+		let radius = 15;
+		//circle angle
+		this.gameFPS = 60/deltaTime;
+		// this.angle += this.gameFPS + this.gameFPS * this.model["multiplier" + this.model.letters[index]];
+		this.angle += 0.005 *Math.PI;
+		console.log("angle", this.angle);
+		this.ctx.beginPath();
+		this.ctx.lineWidth = lineWidth;
+		this.ctx.strokeStyle = this.model.color[index];
+		this.ctx.arc(x, y , radius, this.startAngle, this.angle);
+		this.ctx.stroke();
+		if(this.angle > 2*Math.PI) {
+			this.angle -= 2*Math.PI;
+		}
+
+	}
+	clearCanvas() {
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	}
+
+}
+
+
+
 
 
 	//-----------------------
@@ -94,7 +124,7 @@ export default class View {
 		let spacing = 8;
 		let colorIndex = 0;
 		for(let i=0; i<this.model.letters.length; i++) {
-			this["endAngle" + this.model.letters[i]] = this.stardAngle + this["indexEndAngle" + this.model.letters[i]];
+			this["endAngle" + this.model.letters[i]] = this.startAngle + this["indexEndAngle" + this.model.letters[i]];
 		}
 		
 		// numbers of circles
@@ -102,7 +132,7 @@ export default class View {
 			
 			//draw circle
 			this.ctx.beginPath();
-			this.ctx.arc(x, y, radius, this.stardAngle, this["endAngle" + this.model.letters[i]], false);
+			this.ctx.arc(x, y, radius, this.startAngle, this["endAngle" + this.model.letters[i]], false);
 			//the circle color
 			this.ctx.strokeStyle = this.model.color[colorIndex];
 			//the circle line width
@@ -138,11 +168,3 @@ export default class View {
 	//-----------------------
 	//-----------------------
 	//-----------------------
-	clearCanvas() {
-		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-	}
-	render() {
-		this.clearCanvas();
-	}
-
-}
